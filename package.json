@@ -1,0 +1,29 @@
+{
+  "name": "@w3voice/chat-archive",
+  "version": "1.0.0",
+  "main": "index.hrml",
+  "scripts": {
+    "start": "npm run ipfs && npm run release",
+    "index": "cp out/messages.html out/index.html",
+    "ipfs": "npm run index && w3 up --no-wrap out/",
+    "release": "npm run index && gh-pages --cname arch.w3voice.net --nojekyll --branch release --dist out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/w3voice/chat-archive.git"
+  },
+  "keywords": [
+    "w3voice"
+  ],
+  "author": "w3voice",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/w3voice/chat-archive/issues"
+  },
+  "homepage": "https://github.com/w3voice/chat-archive#readme",
+  "description": "",
+  "dependencies": {
+    "@web3-storage/w3cli": "^7.9.1",
+    "gh-pages": "^6.2.0"
+  }
+}
