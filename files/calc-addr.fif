@@ -1,0 +1,20 @@
+"TonUtil.fif"   include
+
+"ilyar" =: username
+0       =: workchain-id
+0       =: t-flag
+
+"installer.fif" include =: installer-code
+
+<b
+    b{0011} s, // split_depth:0 special:0 code:1 data:1
+    installer-code ref,         // code
+    <b username $, b> ref,      // init_storage
+    null dict,                  // library
+b>  =: username-state-init
+
+username-state-init hashu workchain-id swap 2=: smc-addr
+
+."smc address:            " smc-addr             .addr cr
+."non-bounceable address: " smc-addr  t-flag 5 + .Addr cr
+."bounceable address:     " smc-addr  t-flag 4 + .Addr cr
